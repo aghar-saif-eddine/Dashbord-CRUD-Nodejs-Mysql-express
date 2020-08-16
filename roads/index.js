@@ -73,7 +73,7 @@ router.get("/home", function(req, res, next) {
   con.query("SELECT COUNT (*) as count FROM `CRUD`.`medcin` ", function
     err,result,fields){
     let results =result[0].count;
-     con.query("SELECT COUNT (*) as count1 FROM `pfe_ranya`.`patient` ", function(
+     con.query("SELECT COUNT (*) as count1 FROM `CRUD`.`patient` ", function(
       err,result,fields){
       let resultss =result[0].count1;
          res.render("home",{ results: results , resultss: resultss});
