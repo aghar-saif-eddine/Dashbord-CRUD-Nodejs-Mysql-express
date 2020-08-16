@@ -6,7 +6,7 @@ var mysql = require("mysql");
 // connection a la base de donnee 
 
 var con = mysql.createConnection({
-  database: "pfe_ranya",
+  database: "CRUD",
   host: "localhost",
   user: "root",
   password: "",
@@ -52,7 +52,7 @@ router.get("/loginadmin", function(req, res, next) {
 /* recuperer la liste du docteurs */
 
 router.get("/ListeDocteur" , function (req ,res,next) {
- con.query("SELECT * FROM `pfe_ranya`.`medcin`", function(
+ con.query("SELECT * FROM `CRUD`.`medcin`", function(
      err,result,fields){
     res.render("ListeDocteur",{ result: result });
       });  
@@ -61,7 +61,7 @@ router.get("/ListeDocteur" , function (req ,res,next) {
 /* recuperer la liste du clients */
 
 router.get("/ListeClients" , function (req ,res,next) {
-  con.query("SELECT * FROM `pfe_ranya`.`patient`", function(
+  con.query("SELECT * FROM `CRUD`.`patient`", function(
     err,result,fields){
    res.render("ListeClients",{ result: result });
      }); 
@@ -70,7 +70,7 @@ router.get("/ListeClients" , function (req ,res,next) {
 /* redirect la page home lors que le login et le mot de passe est coorecte  */
 
 router.get("/home", function(req, res, next) {
-  con.query("SELECT COUNT (*) as count FROM `pfe_ranya`.`medcin` ", function(
+  con.query("SELECT COUNT (*) as count FROM `CRUD`.`medcin` ", function
     err,result,fields){
     let results =result[0].count;
      con.query("SELECT COUNT (*) as count1 FROM `pfe_ranya`.`patient` ", function(
